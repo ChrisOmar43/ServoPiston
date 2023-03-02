@@ -1,6 +1,7 @@
 int cm = 0;
 int p1, p2, d, v;
-String pos = "inicio"; 
+String pos = "inicio";
+Stirng pos2 = "";  
 void movimiento(p1, p2, d, v);
 void recursividad(cm);
 
@@ -11,9 +12,6 @@ void setup() {
   pinMode(5,OUTPUT);
   pinMode(6, OUTPUT);
   Serial.begin(9600);
- // movimiento(4,6,2540, 50);
-  pos = pos + " ok";
-  cm = 0;
 }
 
 void loop() {
@@ -21,12 +19,14 @@ void loop() {
     String pos = Serial.readString();
     if (pos == "inicio"||pos == "calibrar"||pos == "0"){
         movimiento(4,6,2540, 50);
-        pos = pos + " ok";
+        pos = "0";
+        pos2 = "0";
         cm = 0;
     }
     else if (pos == "1"||pos == "2"||pos == "3"||pos == "4"){
-      cm = int(pos) - cm;
-      recursividad(cm);
+      cm = int(pos) - int(pos2);
+      pos2 = pos;
+      ciclo(cm);
     }
    }
 }
@@ -39,46 +39,11 @@ void movimiento(p1, p2, d, v){
       digitalWrite(p1, LOW);
       digitalWrite(p2, LOW);
 }
-void recursividad(cm){
-  if(cm == -1){
-    movimiento(4,6,635, 50);
-    cm = cm+1;
-    recursividad(cm);
+void ciclo(cm){
+  for (int i = cm; i >=  -1; i++) {
+    movimiento(4, 6, 635, 50);
   }
-  else if (cm == -2){
-    movimiento(4,6,635, 50);
-    cm = cm+1;
-    recursividad(cm);
-  }
-  else if (cm == -3){
-    movimiento(4,6,635, 50);
-    cm = cm+1;
-    recursividad(cm);
-  }
-  else if (cm == -4){
-    movimiento(4,6,635, 50);
-    cm = cm+1;
-    recursividad(cm);
-  }
-
-  if(cm == 1){
-    movimiento(4,6,650, 70);
-    cm = cm-1;
-    recursividad(cm);
-  }
-  else if (cm == 2){
-    movimiento(4,6,650, 70);
-    cm = cm-1;
-    recursividad(cm);
-  }
-  else if (cm == 3){
-    movimiento(4,6,650, 70);
-    cm = cm-1;
-    recursividad(cm);
-  }
-  else if (cm == 4){
-    movimiento(4,6,650, 70);
-    cm = cm-1;
-    recursividad(cm));
+  for (int i = cm; i <=  1; i--) {
+    movimiento(2, 5, 650, 70);
   }
 }
