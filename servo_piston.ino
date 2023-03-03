@@ -1,9 +1,8 @@
-int cm = 0;
-int p1, p2, d, v;
+int cm2 = 0;
 String pos = "inicio";
-Stirng pos2 = "";  
-void movimiento(p1, p2, d, v);
-void recursividad(cm);
+String pos2 = "";  
+void movimiento(int p1, int p2, int d, int v);
+void ciclo(int cm);
 
 void setup() {
   pinMode(2, OUTPUT);
@@ -21,17 +20,17 @@ void loop() {
         movimiento(4,6,2540, 50);
         pos = "0";
         pos2 = "0";
-        cm = 0;
+        cm2 = 0;
     }
     else if (pos == "1"||pos == "2"||pos == "3"||pos == "4"){
-      cm = int(pos) - int(pos2);
+      cm2 = pos.toInt() - pos2.toInt();
       pos2 = pos;
-      ciclo(cm);
+      ciclo(cm2);
     }
    }
 }
 
-void movimiento(p1, p2, d, v){
+void movimiento(int p1, int p2, int d, int v){
       analogWrite(3, v);
       digitalWrite(p1,HIGH);
       digitalWrite(p2, HIGH);
@@ -39,7 +38,7 @@ void movimiento(p1, p2, d, v){
       digitalWrite(p1, LOW);
       digitalWrite(p2, LOW);
 }
-void ciclo(cm){
+void ciclo(int cm){
   for (int i = cm; i >=  -1; i++) {
     movimiento(4, 6, 635, 50);
   }
