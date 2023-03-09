@@ -41,5 +41,5 @@ void loop() {
       Serial.println(cm2);
       ciclo(cm2);
     }
-   }
+  }
 }
