@@ -1,3 +1,4 @@
+						//Se reciclara el codigo del servo piston manual
 //Declaracion de variables
 int cm2 = 0;
 int pos2 = 0;  
@@ -30,7 +31,7 @@ void setup() {
   pinMode(5,OUTPUT);
   pinMode(6, OUTPUT);
   Serial.begin(9600);
-  movimiento(2,5,2540, 50); //Inicio con posición 0
+  movimiento(2,5,2540, 50); //Movimiento al origen
 }
 
 void loop() {

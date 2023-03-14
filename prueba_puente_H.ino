@@ -9,16 +9,16 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(2, HIGH);
-  digitalWrite(5, HIGH);
-  delay(250);
-  digitalWrite(2,LOW);
-  digitalWrite(5, LOW);
-  delay(200);
-  digitalWrite(4,HIGH);
-  digitalWrite(6, HIGH);
-  delay(250);
-  digitalWrite(4, LOW);
-  digitalWrite(6, LOW);
+  digitalWrite(2, HIGH);	//
+  digitalWrite(5, HIGH);	//
+  delay(250);			//Movimiento de piston der
+  digitalWrite(2,LOW);		//
+  digitalWrite(5, LOW);		//
+  delay(200);			
+  digitalWrite(4,HIGH);		//
+  digitalWrite(6, HIGH);	//
+  delay(250);			//Movimiento de piston izq
+  digitalWrite(4, LOW);		//
+  digitalWrite(6, LOW);		//
   delay(200);
 }
